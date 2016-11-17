@@ -1,0 +1,24 @@
+
+
+section(id="resultat-content")
+    h1 Résultats de l'examen :
+    div#div-resultats
+        p 
+            | Vous avez fini l'examen de 
+            span#type-examen
+        p 
+            | Vous avez réussi 
+            span#questions-reussis 0
+            |  sur 
+            span#questions-totales 0
+            |  questions
+        p 
+            | Votre note finale est de : 
+            span#note-finale 0
+            |  %
+        p 
+            | Commentaire sur la note : 
+            span#commentaire Pas de commentaires
+    p#retour-au-tdb.bouton-bleu: a(routerLink="/tableau_de_bord') Retour au tableau de bord
+//script(type="application/javascript", src="/javascript/stat.js")
+//script(type="application/javascript", src="/javascript/resultat.js")

@@ -1,0 +1,18 @@
+form(action="./resultats")
+            fieldset
+                legend Question
+                p(class="question")
+                div(class="reponses")
+                
+                div(class="dropzone")
+                    p(class="aide") Faites glisser une réponse ici
+            p: input(
+                      type="submit"
+                      value="Question suivante"
+                    )
+                    
+section(class="clear")
+            h2 Note actuelle :
+            p 
+                span#note-actuelle 0
+                |  points

@@ -1,0 +1,81 @@
+
+    
+a(href="#")
+    div(id='fond-opaque')
+            div(id='boite-modale')
+                h2 Notes obtenues aux examens
+                table
+    
+section(id='tableau-content')
+    h1 Tableau de bord
+
+    div
+        section
+            h2 Test Rapide
+            p Pour commencer un test rapide :
+            br
+            a#test-rapide(routerLink="/test_rapide") Cliquez ici
+        section
+            h2 Examen
+            p(class="indication")
+            form(action="/examen")
+                label(for="theme") Theme :
+                select(id="theme")
+                    option(value="html") HTML
+                    option(value="css") CSS
+                    option(value="javascript") JavaScript
+                br
+                label(for="nb_question") Nombre de question :
+                input(
+                        id="nb_question"
+                        type="number"
+                        value="1"
+                        min="1"
+                        max="50"
+                        step="1"
+                        required
+                        )
+                input(
+                        id="demarrer-examen"
+                        type="submit"
+                        value="Démarrer"
+                        )
+                input(
+                        id="continuer"
+                        type="submit"
+                        value="Continuez"
+                        )
+                input(
+                        id="supprimer"
+                        type="submit"
+                        value="Supprimez progres"
+                        )
+        section(class="statsection")
+            h2 Statistiques :
+            table
+                table
+                    tr
+                        td Nombre de tests rapides réussis:
+                        td(class="moyenne_test_rapide")
+                    tr
+                        td Moyenne du test HTML:
+                        td(class="moyenne_HTML")
+
+                    tr
+                        td Moyenne du test CSS:
+                        td(class="moyenne_CSS")
+
+                    tr
+                        td Moyenne du test Javascript:
+                        td(class="moyenne_JS")
+
+                    tr
+                        td Moyenne des examens:
+                        td(class="moyenne_exam")
+
+            p(class='bouton-bleu'): a(href="#") Remise à zéro
+                        
+        p(class='bouton-bleu'): a(href="#fond-opaque") Détails
+    
+//script(type="application/javascript", src="/javascript/stat.js")
+//script(type="application/javascript", src="/javascript/tableau_de_bord.js")

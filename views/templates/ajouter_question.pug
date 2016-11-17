@@ -1,0 +1,40 @@
+
+section(id='ajout-question-content')
+        h1 Ajouter une question à la base de donnée
+            
+        div(id="retour-remise-zero")
+            
+        form(action="#")
+            label Domaine
+            select(name="domaine", required)
+                    option(value="html") HTML
+                    option(value="css") CSS
+                    option(value="javascript") JavaScript
+            br
+            label Question
+            input(name="question", required)
+            br
+            label Nombre de réponses
+            input(name="nb_reponse", type="number", required, value="", min="2")
+            br
+            label Réponses
+                div(id="reponses")
+            br
+            label Numéro de la bonne réponse
+            input(name="bonne_reponse", type="number", required, min="1", max="")
+            br
+            input(id="demarrer", type="submit", value="Soumettre")
+
+        div(class="message_retour")
+            p La question suivante a bien été ajoutée à la base de donnée
+            ul
+                li(class="texte-id")
+                li(class="texte-domaine")
+                li(class="texte-question")
+                li(class="texte-rep")
+                    ul
+                li(class="texte-bonne-rep")
+                    
+        p(class='bouton-bleu'): a(href="#") Remettre à zéro les questions
+            
+//script(type="application/javascript", src="/javascript/ajout_question.js")

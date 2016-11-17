@@ -1,0 +1,21 @@
+doctype html
+html
+  head(lang="fr")
+    meta(charset="utf-8")
+    //title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //script(src="https://code.jquery.com/jquery-3.1.1.js")
+  body
+    nav
+        ul#topnav
+            li: a#topnav(class=test, routerLink="/", title=Accueil) PAGE D'ACCUEIL
+            li: a#topnav(routerLink="/tableau_de_bord", title=Bord) TABLEAU DE BORD
+            li: a#topnav(routerLink="/instructions", title=Instructions) PAGE D'INSTRUCTION
+            li: a#topnav(routerLink="/ajouter_question", title=Question) AJOUTER DES QUESTIONS
+
+    router-outlet
+    
+    footer
+        p Margaux Debailleux - N°1864315
+            br
+            | Johan Nordholts - N°1864337
