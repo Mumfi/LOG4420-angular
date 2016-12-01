@@ -8,10 +8,10 @@ html
   body
     nav
         ul#topnav
-            li: a#topnav(class=test, routerLink="/", title=Accueil) PAGE D'ACCUEIL
-            li: a#topnav(routerLink="/tableau_de_bord", title=Bord) TABLEAU DE BORD
-            li: a#topnav(routerLink="/instructions", title=Instructions) PAGE D'INSTRUCTION
-            li: a#topnav(routerLink="/ajouter_question", title=Question) AJOUTER DES QUESTIONS
+            li: a#topnav(class=test, routerLink="/", [style.background-color]="colorIndex()") PAGE D'ACCUEIL
+            li: a#topnav(routerLink="/tableau_de_bord",  [style.background-color]="colorTDB()") TABLEAU DE BORD
+            li: a#topnav(routerLink="/instructions", [style.background-color]="colorInstruct()") PAGE D'INSTRUCTION
+            li: a#topnav(routerLink="/ajouter_question", [style.background-color]="colorQu()") AJOUTER DES QUESTIONS
 
     router-outlet
     

@@ -1,18 +1,21 @@
-form(action="./resultats")
+form()
             fieldset
-                legend Question
-                p(class="question")
-                div(class="reponses")
-                
-                div(class="dropzone")
-                    p(class="aide") Faites glisser une réponse ici
-            p: input(
-                      type="submit"
-                      value="Question suivante"
+                legend Question {{num_question}}
+                p(class="question") {{question.question}}
+                div( class="reponses")
+                    //<div id =\"" + num + "\" draggable=\"true\" ondragstart=\"event.dataTransfer.setData('text/plain',null)\">"+ data.reponses[i] + "</div>
+                    div(*ngFor="let rep of question.reponses; let i=index", class="{{i+1}}", [draggable]="isDraggable()", ondragstart="event.dataTransfer.setData('text/plain',null)", (dragstart)="onDragStart($event)", (dragend)="onDragEnd($event)") {{rep}}
+
+                div(class="dropzone", [style.border-color]="couleur_reponse()", [style.border-style]="borderStyle()", (dragover)="onDragOver($event)", (dragenter)="onDragEnter($event)", (dragleave)="onDragLeave($event)",  (drop)="onDrop($event)")
+                    p([style.display]="displayAide()", class="aide") Faites glisser une réponse ici
+            p: input(   (click)="questionSuivante()",
+                        type="submit",
+                        value="Question suivante",
+                        routerLink="{{link}}"
                     )
-                    
+
 section(class="clear")
             h2 Note actuelle :
             p 
-                span#note-actuelle 0
+                span#note-actuelle {{note_actuelle}}
                 |  points

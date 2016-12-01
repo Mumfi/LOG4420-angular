@@ -21,6 +21,9 @@ var instruction_component_1 = require('./instruction.component');
 var ajout_question_component_1 = require('./ajout-question.component');
 var test_rapide_component_1 = require('./test-rapide.component');
 var examen_component_1 = require('./examen.component');
+var resultat_component_1 = require('./resultat.component');
+var test_component_1 = require('./test.component');
+var stat_component_1 = require('./stat.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -37,9 +40,11 @@ var AppModule = (function () {
                 instruction_component_1.InstructionComponent,
                 ajout_question_component_1.AjoutQuestionComponent,
                 test_rapide_component_1.TestRapideComponent,
-                examen_component_1.ExamenComponent
+                examen_component_1.ExamenComponent,
+                resultat_component_1.ResultatComponent,
+                stat_component_1.StatComponent,
+                test_component_1.TestComponent
             ],
-            //provider[ HeroService]
             providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
             bootstrap: [app_component_1.AppComponent]
         }), 

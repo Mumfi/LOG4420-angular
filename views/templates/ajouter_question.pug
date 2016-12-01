@@ -2,9 +2,9 @@
 section(id='ajout-question-content')
         h1 Ajouter une question à la base de donnée
             
-        div(id="retour-remise-zero")
+        div(id="retour-remise-zero") {{messageRAZ}}
             
-        form(action="#")
+        form(action="#", [style.display]="displayForm()", (submit)="envoyerQuestion($event)")
             label Domaine
             select(name="domaine", required)
                     option(value="html") HTML
@@ -15,24 +15,30 @@ section(id='ajout-question-content')
             input(name="question", required)
             br
             label Nombre de réponses
-            input(name="nb_reponse", type="number", required, value="", min="2")
+            input((change)="update ($event.target.value)" name="nb_reponse", type="number", required, value="2", min="2")
             br
             label Réponses
                 div(id="reponses")
+                    //<div><label> Réponse " + Number(i+1) + "</label><input name=\"reponses\"[] required><br></div>
+                    div(*ngFor="let rep of reponses; let i=index")
+                        label Réponse {{i+1}}
+                        input(name="reponses" required)
+                        br
             br
             label Numéro de la bonne réponse
-            input(name="bonne_reponse", type="number", required, min="1", max="")
+            input(name="bonne_reponse", type="number", required, min="1", max="{{nb_reponse}}")
             br
-            input(id="demarrer", type="submit", value="Soumettre")
+            input( id="demarrer", type="submit", value="Soumettre")
 
-        div(class="message_retour")
+        div(class="message_retour", [style.display]="displayReponse()")
             p La question suivante a bien été ajoutée à la base de donnée
             ul
-                li(class="texte-id")
-                li(class="texte-domaine")
-                li(class="texte-question")
-                li(class="texte-rep")
+                li(class="texte-id") ID : {{retour._id}}
+                li(class="texte-domaine") Domaine : {{retour.domaine}}
+                li(class="texte-question") Question : {{retour.question}}
+                li(class="texte-rep") 
                     ul
-                li(class="texte-bonne-rep")
+                        li(*ngFor="let rep of retour.reponses; let i=index") Réponse {{i+1}} : {{rep}}
+                li(class="texte-bonne-rep") Bonne réponse : {{retour.bonne_reponse}}
                     
-        p(class='bouton-bleu'): a(href="#") Remettre à zéro les questions
+        p(class='bouton-bleu', (click)="RAZ($event)"): a(href="#") Remettre à zéro les questions

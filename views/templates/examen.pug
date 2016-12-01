@@ -1,13 +1,14 @@
 
 section(class='examen-content')
-    h1
+    h1 Examen de {{theme | uppercase}}
         
-    include extensionStat
+    stat
         
-    include extensionTests
+
+    test
             
-    p(id='abandon-examen', class = 'bouton-bleu'): a(href="resultats") Abandon de l'examen
-    p(class = 'bouton-bleu'): a(routerLink="/tableau_de_bord") Sauvegarder et retour au bord
+    p(id='abandon-examen', class = 'bouton-bleu'): a(routerLink="/resultat") Abandon de l'examen
+    p((click)="abandon()" class = 'bouton-bleu'): a(routerLink="/tableau_de_bord") Sauvegarder et retour au bord
 
 
 

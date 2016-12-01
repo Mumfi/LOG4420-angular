@@ -3,9 +3,10 @@
 section(class='test-content')
     h1 Test rapide
         
-    include extensionStat
-        
-    include extensionTests
+    stat([questionRep]="questionRep")
+
+    test((questionRepondue) = "questionRepondue()")
         
     p(class='bouton-bleu'): a(routerLink="/tableau_de_bord") Retour au tableau de bord
-        
+
+

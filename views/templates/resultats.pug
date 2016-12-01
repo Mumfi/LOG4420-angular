@@ -1,22 +1,26 @@
+section(id='resultat-content')
 
-
-section(id="resultat-content")
-    h1 Résultats de l'examen :
-    div#div-resultats
-        p 
-            | Vous avez fini l'examen de 
-            span#type-examen
-        p 
-            | Vous avez réussi 
-            span#questions-reussis 0
-            |  sur 
-            span#questions-totales 0
+    h1 Résultats de l'examen
+    
+    div(class='div-resultats')
+    
+        p
+            | Vous avez fini l'examen de
+            span(id='type-examen')  {{theme|uppercase}}
+        p
+            | Vous avez réussi
+            span(id='questions-reussis')  {{nb_bonne_reponse}}
+            |  sur
+            span(id='questions-totales')  {{nb_question}}
             |  questions
-        p 
-            | Votre note finale est de : 
-            span#note-finale 0
-            |  %
-        p 
-            | Commentaire sur la note : 
-            span#commentaire Pas de commentaires
-    p#retour-au-tdb.bouton-bleu: a(routerLink="/tableau_de_bord') Retour au tableau de bord
+        p
+            |Votre note finale est de :
+            span(id='note-finale')  {{note_finale}}
+            | %
+            
+        p
+            | Commentaire sur la note :
+            span(id='commentaire')  {{commentaire}}
+            
+    p(id='retour-au-tdb' class='bouton-bleu')
+        a(routerLink="/tableau_de_bord") Retour au tableau de bord

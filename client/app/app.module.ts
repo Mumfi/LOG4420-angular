@@ -4,6 +4,7 @@ import { FormsModule  }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import {APP_BASE_HREF} from '@angular/common';
 
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,6 +15,10 @@ import { InstructionComponent } from './instruction.component';
 import { AjoutQuestionComponent } from './ajout-question.component';
 import { TestRapideComponent } from './test-rapide.component';
 import { ExamenComponent } from './examen.component';
+import { ResultatComponent } from './resultat.component';
+import { TestComponent } from './test.component';
+import { StatComponent } from './stat.component';
+import { QuizService } from './quiz.service';
 
 
 @NgModule({
@@ -28,9 +33,11 @@ import { ExamenComponent } from './examen.component';
                   InstructionComponent,
                   AjoutQuestionComponent,
                   TestRapideComponent,
-                  ExamenComponent
+                  ExamenComponent,
+                  ResultatComponent,
+                  StatComponent,
+                  TestComponent
                 ],
-  //provider[ HeroService]
   providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [ AppComponent ]
 })

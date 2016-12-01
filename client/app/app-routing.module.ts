@@ -9,6 +9,7 @@ import { InstructionComponent } from './instruction.component';
 import { AjoutQuestionComponent } from './ajout-question.component';
 import { TestRapideComponent } from './test-rapide.component';
 import { ExamenComponent } from './examen.component';
+import { ResultatComponent } from './resultat.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'instructions', component: InstructionComponent},
   { path: 'ajouter_question', component: AjoutQuestionComponent},
   { path: 'test_rapide', component: TestRapideComponent},
-  { path: 'examen', component: ExamenComponent}
+  { path: 'examen', component: ExamenComponent},
+  { path: 'resultat', component: ResultatComponent}
 ];
 
 

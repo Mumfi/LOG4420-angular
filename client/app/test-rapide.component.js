@@ -9,15 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var quiz_service_1 = require('./quiz.service');
 var TestRapideComponent = (function () {
-    function TestRapideComponent() {
+    function TestRapideComponent(quizService) {
+        this.quizService = quizService;
+        this.questionRep = 0;
     }
+    TestRapideComponent.prototype.ngOnInit = function () {
+    };
+    TestRapideComponent.prototype.questionRepondue = function () {
+        this.questionRep++;
+    };
     TestRapideComponent = __decorate([
         core_1.Component({
-            selector: 'Test Rapide',
-            templateUrl: '/templates/test_rapide'
+            selector: 'Test-Rapide',
+            templateUrl: '/templates/test_rapide',
+            providers: [quiz_service_1.QuizService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [quiz_service_1.QuizService])
     ], TestRapideComponent);
     return TestRapideComponent;
 }());

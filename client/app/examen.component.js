@@ -9,15 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var quiz_service_1 = require('./quiz.service');
 var ExamenComponent = (function () {
-    function ExamenComponent() {
+    function ExamenComponent(quizService) {
+        this.quizService = quizService;
     }
+    ExamenComponent.prototype.ngOnInit = function () {
+        this.theme = this.quizService.getTheme();
+    };
+    ExamenComponent.prototype.abandon = function () {
+        this.quizService.abandonExamen();
+    };
     ExamenComponent = __decorate([
         core_1.Component({
             selector: 'Examen',
-            templateUrl: '/templates/examen'
+            templateUrl: '/templates/examen',
+            providers: [quiz_service_1.QuizService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [quiz_service_1.QuizService])
     ], ExamenComponent);
     return ExamenComponent;
 }());

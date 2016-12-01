@@ -16,6 +16,7 @@ var instruction_component_1 = require('./instruction.component');
 var ajout_question_component_1 = require('./ajout-question.component');
 var test_rapide_component_1 = require('./test-rapide.component');
 var examen_component_1 = require('./examen.component');
+var resultat_component_1 = require('./resultat.component');
 var routes = [
     { path: '', redirectTo: '/index', pathMatch: 'full' },
     { path: 'index', component: index_component_1.IndexComponent },
@@ -23,7 +24,8 @@ var routes = [
     { path: 'instructions', component: instruction_component_1.InstructionComponent },
     { path: 'ajouter_question', component: ajout_question_component_1.AjoutQuestionComponent },
     { path: 'test_rapide', component: test_rapide_component_1.TestRapideComponent },
-    { path: 'examen', component: examen_component_1.ExamenComponent }
+    { path: 'examen', component: examen_component_1.ExamenComponent },
+    { path: 'resultat', component: resultat_component_1.ResultatComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

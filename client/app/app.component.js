@@ -9,16 +9,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var AppComponent = (function () {
-    function AppComponent() {
-        this.title = "Quiz de Web";
+    function AppComponent(_router) {
+        this._router = _router;
+        this.router = _router;
     }
+    AppComponent.prototype.colorIndex = function () {
+        if (this.router.url == "/index") {
+            return "#79cbf1";
+        }
+        else {
+            return "";
+        }
+    };
+    AppComponent.prototype.colorTDB = function () {
+        if (this.router.url == "/tableau_de_bord") {
+            return "#79cbf1";
+        }
+        else {
+            return "";
+        }
+    };
+    AppComponent.prototype.colorInstruct = function () {
+        if (this.router.url == "/instructions") {
+            return "#79cbf1";
+        }
+        else {
+            return "";
+        }
+    };
+    AppComponent.prototype.colorQu = function () {
+        if (this.router.url == "/ajouter_question") {
+            return "#79cbf1";
+        }
+        else {
+            return "";
+        }
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'mon-app',
-            templateUrl: "templates/layout"
+            templateUrl: "templates/layout",
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());

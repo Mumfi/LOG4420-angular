@@ -5,75 +5,49 @@ a(href="#")
             div(id='boite-modale')
                 h2 Notes obtenues aux examens
                 table
+                    p {{texte}}
+                    tr(*ngFor="let exam of examens; let i=index")
+                        td Examen {{exam.id}} ({{exam.domaine|uppercase}}) :
+                        td Note : {{exam.bonne_reponse}} / {{exam.totale_reponse}}
     
 section(id='tableau-content')
     h1 Tableau de bord
-
-    div
+    div(class="form-exam")
         section
             h2 Test Rapide
             p Pour commencer un test rapide :
             br
-            a#test-rapide(routerLink="/test_rapide") Cliquez ici
+            a#test-rapide((click)="demarrerRapide()", routerLink="/test_rapide") Cliquez ici
         section
             h2 Examen
-            p(class="indication")
-            form(action="/examen")
-                label(for="theme") Theme :
-                select(id="theme")
-                    option(value="html") HTML
-                    option(value="css") CSS
-                    option(value="javascript") JavaScript
-                br
-                label(for="nb_question") Nombre de question :
-                input(
-                        id="nb_question"
-                        type="number"
-                        value="1"
-                        min="1"
-                        max="50"
-                        step="1"
-                        required
-                        )
-                input(
-                        id="demarrer-examen"
-                        type="submit"
-                        value="Démarrer"
-                        )
-                input(
-                        id="continuer"
-                        type="submit"
-                        value="Continuez"
-                        )
-                input(
-                        id="supprimer"
-                        type="submit"
-                        value="Supprimez progres"
-                        )
-        section(class="statsection")
-            h2 Statistiques :
-            table
-                table
-                    tr
-                        td Nombre de tests rapides réussis:
-                        td(class="moyenne_test_rapide")
-                    tr
-                        td Moyenne du test HTML:
-                        td(class="moyenne_HTML")
-
-                    tr
-                        td Moyenne du test CSS:
-                        td(class="moyenne_CSS")
-
-                    tr
-                        td Moyenne du test Javascript:
-                        td(class="moyenne_JS")
-
-                    tr
-                        td Moyenne des examens:
-                        td(class="moyenne_exam")
-
-            p(class='bouton-bleu'): a(href="#") Remise à zéro
+            p(class="indication") {{indication}}
+            form()
+                div([style.display]="displayNewExam()")
+                    label(  for="theme" [(ngModel)]="theme" ) Theme :
+                    select((change)="update ($event.target.value)" id="theme" name="theme")
+                        option(value="html") HTML
+                        option(value="css") CSS
+                        option(value="javascript") JavaScript
+                    br
+                    label(for="nb_question") Nombre de question :
+                    
+                    input(id="nb_question" name="nb_question" type="number" value="1" min="1" max="{{nb_question_max | async}}" step="1" required [(ngModel)]="nb_question")
+                    input((click)="demarrerExamen()" id="demarrer-examen" type="submit" value="Démarrer" routerLink="/examen")
+                div([style.display]="displayOldExam()")
+                    input( 
+                            id="continuer"
+                            value="Continuez"
+                            type="submit"
+                            routerLink="/examen"
+                            )
+                            
+                    input(  (click)="supprimerExamEnCours($event)"
+                            id="supprimer"
+                            type="submit"
+                            value="Supprimez progres"
+                            )
+        stat((memoireEffacee) = "memoireEffacee()")
                         
         p(class='bouton-bleu'): a(href="#fond-opaque") Détails
+    
 

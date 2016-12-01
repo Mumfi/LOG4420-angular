@@ -3,20 +3,23 @@ section(class="statsection")
     table
         tr
             td Nombre de tests rapides réussis:
-            td(class="moyenne_test_rapide")
+            td(class="moyenne_test_rapide") {{moyenne_test_rapide}}
         tr
             td Moyenne du test HTML:
-            td(class="moyenne_HTML")
+            td(class="moyenne_HTML") {{moyenne_HTML}}
 
         tr
             td Moyenne du test CSS:
-            td(class="moyenne_CSS")
+            td(class="moyenne_CSS") {{moyenne_CSS}}
 
         tr
             td Moyenne du test Javascript:
-            td(class="moyenne_JS")
+            td(class="moyenne_JS") {{moyenne_JS}}
 
         tr
             td Moyenne des examens:
-            td(class="moyenne_exam")
+            td(class="moyenne_exam") {{moyenne_exam}}
+            
+    div([style.display]="displayDelete()")        
+        p(class='bouton-bleu'): a((click)="EffacerStat($event)" href="#") Remise à zéro
                 
